@@ -9,20 +9,20 @@
       name: mongodb-org-shell
       state: present
 
-  - name: get the entries count
+  - name: "get the {{component}} entries count"
     ansible.builtin.shell: mongo --host mongodb.forpractice.uno --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
     register: entries_count
     when: component == "catalogue"
 
 
-  - name: get the entries count
+  - name: "get the {{component}} entries count"
     ansible.builtin.shell: mongo --host mongodb.forpractice.uno --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
     register: entries_count
     when: component == "user"
 
-  # - name: print the count
-  #   ansible.builtin.debug: 
-  #     msg: "products count {{ product_count }}"
+  - name: print the count
+    ansible.builtin.debug: 
+      msg: "entries count: {{ component }}"
 
   - name: "load {{component}} data"
     ansible.builtin.shell: "mongo --host mongodb.forpractice.uno < /app/schema/{{component}}.js"
