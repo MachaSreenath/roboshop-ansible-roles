@@ -1,4 +1,3 @@
-
   - name: Copy mongodb repo
     ansible.builtin.copy:
       src: mongodb.repo
