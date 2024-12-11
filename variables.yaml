@@ -1,1 +1,2 @@
 MONGODB_HOST: mongodb.forpractice.uno
+REDIS_HOST: redis.forpractice.uno
