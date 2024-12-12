@@ -12,4 +12,3 @@
     path: /app/*
     state: absent 
     force: yes
-    recurse: yes
